@@ -1,8 +1,8 @@
 import requests
 
-__ENDPOINT_URL__: str = "https://chanryder.squareweb.app/api"
+__ENDPOINT_URL__: str = "https://xombooshop.squareweb.app/api"
 
-class CPMRm:
+class Xomboo:
     def __init__(self, access_key) -> None:
         self.auth_token = None
         self.access_key = access_key
