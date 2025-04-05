@@ -612,8 +612,12 @@ if __name__ == "__main__":
                 console.print("[bold yellow][!] Note[/bold yellow]: original speed can not be restored!.")
                 console.print("[bold cyan][!] Enter Car Details.[/bold cyan]")
                 car_id = IntPrompt.ask("[bold][?] Car Id[/bold]")
+                new_hp = IntPrompt.ask("[bold][?]Enter New HP[/bold]")
+                new_inner_hp = IntPrompt.ask("[bold][?]Enter New Inner Hp[/bold]")
+                new_nm = IntPrompt.ask("[bold][?]Enter New NM[/bold]")
+                new_torque = IntPrompt.ask("[bold][?]Enter New Torque[/bold]")
                 console.print("[bold cyan][%] Hacking Car Speed[/bold cyan]:",end=None)
-                if cpm.hack_car_speed(car_id):
+                if cpm.hack_car_speed(car_id, new_hp, new_inner_hp, new_nm, new_torque):
                     console.print("[bold green]SUCCESFUL (✔)[/bold green]")
                     console.print("================================")
                     answ = Prompt.ask("[?] Do You want to Exit ?", choices=["y", "n"], default="n")
@@ -639,7 +643,23 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, 'FAILED'))
                     print(Colorate.Horizontal(Colors.rainbow, 'PLEASE TRY AGAIN'))
                     sleep(2)
-                    continue                                        
+                    continue
+            elif service == 29: # tire
+                print(Colorate.Horizontal(Colors.rainbow, '[!] ENTER CAR DETALIS'))
+                car_id = IntPrompt.ask("[bold][?] CAR ID[/bold]")
+                print(Colorate.Horizontal(Colors.rainbow, '[!] ENTER PERCENTAGE'))
+                custom = IntPrompt.ask("[pink][?]﻿ENTER PERCENTAGE TIRES U WANT[/pink]")                
+                console.print("[red][%] Setting Percentage [/red]: ", end=None)
+                if cpm.max_max2(car_id, custom):
+                    print(Colorate.Horizontal(Colors.rainbow, 'SUCCESSFUL'))
+                    answ = Prompt.ask("[bold green][?] DO YOU WANT TO EXIT[/bold green] ?", choices=["y", "n"], default="n")
+                    if answ == "y": console.print("THANK YOU FOR USING OUR TOOL")
+                    else: continue
+                else:
+                    print(Colorate.Horizontal(Colors.rainbow, 'FAILED'))
+                    print(Colorate.Horizontal(Colors.rainbow, 'PLEASE TRY AGAIN'))
+                    sleep(2)
+                    continue
             else: continue
             break
         break
